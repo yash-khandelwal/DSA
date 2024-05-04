@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"3 \n3 4 \n1 3 4 \n1 2 3 4 \n1 2 3 4 5 \n1 2 3 4 5 \n1 2 4 5 \n4\n2\n2\n2\n2\n3\n2\n1\n0\n2\n5\n5\n14\n16796\n1 2 4 5"
+		],
+		"test": "100\ninsert 3\ninorder\ninsert 4\ninorder\ninsert 1\ninorder\ninsert 2\ninorder\ninsert 5\ninorder\ninsert 4\ninorder\ndelete 3\ninorder\nlca 4 5\nlca 2 5\nlca 1 4\nlca 2 4\nlca 1 5\ndistance2 1 5\ndistance2 1 4\ndistance2 1 2\ndistance2 1 1\npossibleBST 2\npossibleBST 3\npossibleBST 3\npossibleBST 4\npossibleBST 10\nbstToDll\nstop\n\n"
+	}
+]
