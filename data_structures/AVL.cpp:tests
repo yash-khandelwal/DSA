@@ -1,0 +1,13 @@
+[
+	{
+		"correct_answers":
+		[
+			"After inserting 1 new height of the tree = 1\nInorder Traversal = [ ( 1, 1), ]\nAfter inserting 2 new height of the tree = 1\nInorder Traversal = [ ( 1, 1), ( 2, 1), ]\nAfter inserting 0 new height of the tree = 1\nAfter inserting -1 new height of the tree = 1\nAfter inserting -2 new height of the tree = 1\nInorder Traversal = [ ( -2, 1), ( -1, 1), ( 0, 1), ( 1, 1), ( 2, 1), ]\nStopped!",
+			"After inserting 1 new height of the tree = 1\nInorder Traversal = [ ( 1, 1), ]\nAfter inserting 2 new height of the tree = 2\nInorder Traversal = [ ( 1, 2), ( 2, 1), ]\nAfter inserting 0 new height of the tree = 2\nAfter inserting -1 new height of the tree = 3\nAfter inserting -2 new height of the tree = 3\nInorder Traversal = [ ( -2, 1), ( -1, 2), ( 0, 1), ( 1, 3), ( 2, 1), ]\nStopped!"
+		],
+		"test": "100\ninsert 1\ninorder\ninsert 2\ninorder\ninsert 0\ninsert -1\ninsert -2\ninorder\n\nstop\n"
+	},
+	{
+		"test": "100\ninsert 50\ninsert 10\ninsert 30\ninsert 20\ninsert 40\ninsert 21\ninorder\npreorder\ndelete 21\ninorder\ninsert 100\ninsert 5\ninorder\ninsert 1\ninorder\ndelete 20\ninorder"
+	}
+]
