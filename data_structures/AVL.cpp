@@ -92,8 +92,7 @@ public:
 		if(!node) return NULL;
 		if(node -> val > val) node -> left = balance(remove(node -> left, val));
 		else if(node -> val < val) node -> right = balance(remove(node -> right, val));
-		else {
-			// case where node -> == val
+		else { // node -> val == val
 			if(!node -> left || !node -> right) return node -> left ? node -> left : node -> right;
 			AVLNode* pred = node -> left;
 			while(pred -> right) pred = pred -> right;
