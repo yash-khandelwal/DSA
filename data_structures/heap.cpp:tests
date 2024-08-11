@@ -4,13 +4,13 @@
 		[
 			"-1\n\n5\n\n7\n\n7\n\n10\n\n12"
 		],
-		"test": "0 11\ntop\ninsert 5\ntop\ninsert 7\ntop\ninsert 6\ntop\ninsert 10\ntop\ninsert 12\ntop\n"
+		"test": "0 100\ntop\npush 5\ntop\npush 7\ntop\npush 6\ntop\npush 10\ntop\npush 12\ntop\npop\ntop\npop\ntop\npop\ntop\npop\ntop\npop\ntop\npush 1\ntop\nstop\n\n"
 	},
 	{
 		"correct_answers":
 		[
 			"-1\n\n5\n\n5\n\n5\n\n5\n\n5"
 		],
-		"test": "1 11\ntop\ninsert 5\ntop\ninsert 7\ntop\ninsert 6\ntop\ninsert 10\ntop\ninsert 12\ntop\n"
+		"test": "1 11\ntop\npush 5\ntop\npush 7\ntop\npush 6\ntop\npush 10\ntop\npush 12\ntop\n"
 	}
 ]

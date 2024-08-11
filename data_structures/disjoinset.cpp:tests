@@ -1,0 +1,5 @@
+[
+	{
+		"test": "10\n5\nfind 2\nunion 2 0\nprint\nunion 2 1\nprint\nunion 3 0\n\nprint\nunion 3 4\nfind 4\nprint\n"
+	}
+]

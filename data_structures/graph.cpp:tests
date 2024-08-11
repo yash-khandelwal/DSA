@@ -1,0 +1,5 @@
+[
+	{
+		"test": "100\ngraph 10\naddEdge 2 3 4\naddEdge 2 5 3\naddEdge 2 4 1\naddEdge 4 3 1\naddEdge 4 5 1\nprintEdges\nprintAdj\ndfs\nbfs\ntopo\nspuw 2\ndijkstra 2\nprintAdj\naddEdge 2 8 6\naddEdge 8 5 -7\ndijkstra 2\nbellmanFord 2\nprintAdj\n"
+	}
+]

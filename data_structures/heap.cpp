@@ -17,12 +17,12 @@ int MIN_HEAP = 1;
 
 class Heap {
 
+public:
+
 	vector<int> arr;
 	int capacity;
 	int size;
 	int heap_type;
-
-public:
 
 	Heap(int capacity, int heap_type) {
 		this -> capacity = capacity;
@@ -46,19 +46,14 @@ public:
 	}
 
 	bool heap_condition(int prnt, int child) {
-		if(!this -> valid_node(prnt)) return true;
-		if(this -> valid_node(child)) {
-			if(this -> heap_type == MAX_HEAP) {
-				return this -> arr[prnt] >= this -> arr[child];
-			} else if(heap_type == MIN_HEAP) {
-				return this -> arr[prnt] <= this -> arr[child];
-			}
-		}
+		if(!this -> valid_node(prnt) || !this -> valid_node(child)) return true;
+		if(this -> heap_type == MAX_HEAP) return this -> arr[prnt] >= this -> arr[child];
+		else if(heap_type == MIN_HEAP) return this -> arr[prnt] <= this -> arr[child];
 		return true;
 	}
 
 	int parent(int i) {
-		return (i - 1) / 2;
+		return i == 0 ? -1 : (i - 1) / 2;
 	}
 
 	int left_child(int i) {
@@ -73,45 +68,45 @@ public:
 		return right;
 	}
 
-	void insert(int value) {
+	void push(int value) {
 		if(this -> exhausted()) return;
 		this -> arr[this -> size] = value;
 		this -> size ++;
-		this -> heapify(this -> parent(this -> size - 1));
+		this -> bottom_up_heapify(this -> size - 1);
 	}
 
-	void heapify(int node) {
+	void pop() {
+		if(this -> empty()) return;
+		this -> arr[0] = this -> arr[size - 1];
+		this -> size --;
+		this -> top_down_heapify(0);
+	}
+
+	void top_down_heapify(int node) {
 		if(!this -> valid_node(node)) return;
 		int left = this -> left_child(node);
 		int right = this -> right_child(node);
-		bool swapped = false;
-		if(!this -> heap_condition(node, left)) {
-			swapped = true;
-			int temp = this -> arr[node];
-			this -> arr[node] = this -> arr[left];
-			this -> arr[left] = temp;
+		int next = node;
+		if(!this -> heap_condition(next, left)) next = left;
+		if(!this -> heap_condition(next, right)) next = right;
+		if(next != node) {
+			swap(arr[node], arr[next]);
+			top_down_heapify(next);
 		}
-		if(!this -> heap_condition(node, right)) {
-			swapped = true;
-			int temp = this -> arr[node];
-			this -> arr[node] = this -> arr[right];
-			this -> arr[right] = temp;
+	}
+
+	void bottom_up_heapify(int node) {
+		if(!this -> valid_node(node)) return;
+		int prnt = this -> parent(node);
+		if(!this -> heap_condition(prnt, node)) {
+			swap(this -> arr[prnt], this -> arr[node]);
+			bottom_up_heapify(prnt);
 		}
-		if(swapped) heapify(this -> parent(node));
 	}
 
 	int top() {
 		if(this -> empty()) return -1;
 		return this -> arr[0];
-	}
-
-	void pop() {
-		if(this -> empty()) return;
-		this -> size--;
-		this -> arr[0] = this -> arr[size];
-		int left = this -> left_child(0);
-		int right = this -> right_child(0);
-		bool swapped = false;
 	}
 
 };
@@ -127,14 +122,23 @@ int main () {
 	while(q--) {
 		string operation;
 		cin >> operation;
-		if(operation == "insert") {
+		if(operation == "push") {
 			int value;
 			cin >> value;
-			heap.insert(value);
+			heap.push(value);
 		} else if(operation == "top") {
 			cout << heap.top();
+		} else if(operation == "pop") {
+			heap.pop();
+			// cout << "heap size after pop is " << heap.size << "\n";
+		} else if(operation == "stop") {
+			cout << "Stopped!";
+			exit(0);
+		} else {
+			cout << "operation '" << operation << "' is not suported!";
 		}
 		cout << "\n";
 	}
 	return 0;
 }
+
